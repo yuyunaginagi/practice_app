@@ -1,10 +1,10 @@
 import React from "react";
 
 export default class Index extends React.Component {
-  reder() {
+  render() {
     return (
       <div>
-        <h1>じゃんけんアプリ！</h1>
+        <h1>ジャンケンに挑戦しよう！</h1>
       </div>
     );
   }
