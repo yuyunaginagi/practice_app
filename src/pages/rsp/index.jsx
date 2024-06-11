@@ -8,6 +8,11 @@ export default class Index extends React.Component {
       selectHand: 0,
     };
   }
+
+  handleOnClick = (val) => {
+    this.setState({selectHand: val});
+  }
+
   render() {
     const handTypes = [0,1,2]
     return (
@@ -21,7 +26,7 @@ export default class Index extends React.Component {
         <h1>じゃんけんページ</h1>
         <div style={{ display: "flex" }}>
           {handTypes.map((handType) => (
-            <Hand selectHand={handType} />
+            <Hand selectHand={handType} selectedHand={this.state.selectHand} clickHand={this.handleOnClick} />
           ))}
         </div>
         <Link to="/">

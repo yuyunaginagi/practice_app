@@ -6,14 +6,18 @@ export default class Hand extends React.Component {
     const handTypes = ["rock", "scissors", "paper"]
     return (
       <div>
-        <button onClick={() => {}}>
+        <button
+          onClick={() => {
+            this.props.clickHand(this.props.selectHand);
+          }}
+        >
           <img
             src={`images/${handTypes[this.props.selectHand]}.jpeg`}
             alt="rock"
             style={{
               height: imgSize,
               width: imgSize,
-              opacity: this.props.selectHand === 0 ? "0.3" : "1.0",
+              opacity: this.props.selectedHand === this.props.selectHand ? "1.0" : "0.3",
             }}
           />
         </button>
