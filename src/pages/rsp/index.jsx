@@ -31,6 +31,7 @@ export default class Index extends React.Component {
               style={{
                 height: imgSize,
                 width: imgSize,
+                opacity: this.state.selectHand == 0 ? 1.0 : 0.3,
               }}
             />
           </button>
@@ -45,6 +46,7 @@ export default class Index extends React.Component {
               style={{
                 height: imgSize,
                 width: imgSize,
+                opacity: this.state.selectHand == 1 ? 1.0 : 0.3,
               }}
             />
           </button>
@@ -59,6 +61,7 @@ export default class Index extends React.Component {
               style={{
                 height: imgSize,
                 width: imgSize,
+                opacity: this.state.selectHand == 2 ? 1.0 : 0.3,
               }}
             />
           </button>
