@@ -9,6 +9,7 @@ export default class Index extends React.Component {
     };
   }
   render() {
+    const handTypes = [0,1,2]
     return (
       <div
         style={{
@@ -19,7 +20,9 @@ export default class Index extends React.Component {
       >
         <h1>じゃんけんページ</h1>
         <div style={{ display: "flex" }}>
-          <Hand selectHand= {0} />
+          {handTypes.map((handType) => (
+            <Hand selectHand={handType} />
+          ))}
         </div>
         <Link to="/">
           <h1>じゃんけんを終了する</h1>
