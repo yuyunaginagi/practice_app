@@ -13,7 +13,7 @@ export default class Hand extends React.Component {
             style={{
               height: imgSize,
               width: imgSize,
-              opacity: 1.0,
+              opacity: this.props.selectHand === 0 ? "0.3" : "1.0",
             }}
           />
         </button>

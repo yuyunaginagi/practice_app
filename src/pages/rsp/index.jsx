@@ -19,7 +19,7 @@ export default class Index extends React.Component {
       >
         <h1>じゃんけんページ</h1>
         <div style={{ display: "flex" }}>
-          <Hand />
+          <Hand selectHand= {0} />
         </div>
         <Link to="/">
           <h1>じゃんけんを終了する</h1>
