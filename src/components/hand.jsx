@@ -3,12 +3,12 @@ import React from "react";
 export default class Hand extends React.Component {
   render() {
     const imgSize = 100;
-
+    const handTypes = ["rock", "scissors", "paper"]
     return (
       <div>
         <button onClick={() => {}}>
           <img
-            src={`images/rock.jpeg`}
+            src={`images/${handTypes[this.props.selectHand]}.jpeg`}
             alt="rock"
             style={{
               height: imgSize,
