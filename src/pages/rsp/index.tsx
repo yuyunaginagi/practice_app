@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Hand from "../../components/hand";
+
+enum HandType {
+  Rock,
+  Scissors,
+  Paper
+}
+
 export default class Index extends React.Component {
   constructor() {
     super();
