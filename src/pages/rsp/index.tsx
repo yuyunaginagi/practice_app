@@ -1,27 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Hand from "../../components/hand";
+import { HandType } from "../../interfaces/handType";
 
-enum HandType {
-  Rock,
-  Scissors,
-  Paper
+interface State {
+  selectHand: HandType;
 }
 
-export default class Index extends React.Component {
-  constructor() {
-    super();
+export default class Index extends React.Component<{}, State> {
+  constructor(props:{}) {
+    super(props);
     this.state = {
-      selectHand: 0,
+      selectHand: HandType.Rock,
     };
   }
 
-  handleOnClick = (val) => {
-    this.setState({selectHand: val});
-  }
+  handleOnClick = (val: HandType): void => {
+    this.setState({ selectHand: val });
+  };
 
   render() {
-    const handTypes = [0,1,2]
+    const handTypes: HandType[] = [HandType.Rock, HandType.Scissors, HandType.Paper];
     return (
       <div
         style={{
@@ -32,7 +31,7 @@ export default class Index extends React.Component {
       >
         <h1>じゃんけんページ</h1>
         <div style={{ display: "flex" }}>
-          {handTypes.map((handType) => (
+          {handTypes.map((handType: HandType) => (
             <Hand selectHand={handType} selectedHand={this.state.selectHand} clickHand={this.handleOnClick} />
           ))}
         </div>
