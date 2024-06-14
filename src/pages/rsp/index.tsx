@@ -10,6 +10,7 @@ interface State {
   enemyHand: HandType;
   resultString: string;
   winCount: number;
+  battleCount: number;
 }
 
 export default class Index extends React.Component<Props, State> {
@@ -21,6 +22,7 @@ export default class Index extends React.Component<Props, State> {
       enemyHand:HandType.Rock,
       resultString: "最初はグーじゃんけん",
       winCount: 0,
+      battleCount: 0,
     };
   }
 
@@ -29,7 +31,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
-    if (prevState.selectHand !== this.state.selectHand) {
+    if (prevState.battleCount !== this.state.battleCount) {
       const enemyHand: HandType = Math.floor(Math.random() * 3);
       this.setState({ enemyHand: enemyHand });
       this.confirmResult(this.state.selectHand, enemyHand);
@@ -37,6 +39,7 @@ export default class Index extends React.Component<Props, State> {
   }
 
   handleOnClick = (val: HandType): void => {
+    this.setState({ battleCount: this.state.battleCount + 1 });
     this.setState({ selectHand: val });
   };
 
