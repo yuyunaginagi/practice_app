@@ -34,7 +34,7 @@ export default class Index extends React.Component<Props, State> {
       this.setState({ enemyHand: enemyHand });
       this.confirmResult(this.state.selectHand, enemyHand);
     }
-   }
+  }
 
   handleOnClick = (val: HandType): void => {
     this.setState({ selectHand: val });
@@ -59,7 +59,6 @@ export default class Index extends React.Component<Props, State> {
   }
 
   render() {
-    const handTypes: HandType[] = [HandType.Rock, HandType.Scissors, HandType.Paper];
     return (
       <div
         style={{
@@ -70,12 +69,17 @@ export default class Index extends React.Component<Props, State> {
       >
         <h1>じゃんけんページ</h1>
         <h2>自分の手</h2>
+        <div style={{ display: "flex" }}>
+          {this.handTypes.map((handType: HandType) => (
+            <Hand selectHand={handType} selectedHand={this.state.selectHand} clickHand={this.handleOnClick} />
+          ))}
+        </div>
         <h1 style={{ color: "red" }}>{this.state.resultString}</h1>
         <h2 style={{ marginTop: 10 }}>相手の手</h2>
         <div style={{ display: "flex" }}>
-          {this.handTypes.map((handType: HandType) => (
+        {this.handTypes.map((handType: HandType) => (
             <Hand selectHand={handType} selectedHand={this.state.enemyHand} clickHand={this.handleOnClick} />
-          ))}
+        ))}
         </div>
         <Link to="/">
           <h1>じゃんけんを終了する</h1>
