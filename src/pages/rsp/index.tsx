@@ -6,6 +6,9 @@ import { HandType } from "../../interfaces/handType";
 export default function Index() {
   const handTypes: HandType[] = [HandType.Rock, HandType.Scissors, HandType.Paper];
 
+  const battleCountVal = React.useRef(0);
+  const winCountVal = React.useRef(0);
+
   const [selectHand, setSelectHand] = useState<HandType>(HandType.Rock);
   const [enemyHand, setEnemyHand] = useState<HandType>(HandType.Rock);
   const [resultString, setResultString] = useState<string>(
@@ -17,7 +20,9 @@ export default function Index() {
   useEffect(() => {
     alert("手を選ぶと、勝敗が決まるよ！\n手を選んでね！");
     return () => {
-      alert(`【戦績】\n${battleCount}戦中、${winCount}勝でした。`);
+      alert(
+        `【戦績】\n${battleCountVal.current}戦中、${winCountVal.current}勝でした。`
+      );
     };
   }, []);
   
@@ -26,6 +31,9 @@ export default function Index() {
       const enemyHand: HandType = Math.floor(Math.random() * 3);
       setEnemyHand(enemyHand);
       confirmResult(selectHand, enemyHand);
+
+      battleCountVal.current = battleCount;
+      winCountVal.current = winCount;
     }
   }, [battleCount]);
 
